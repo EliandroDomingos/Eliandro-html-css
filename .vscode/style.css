@@ -5,6 +5,24 @@
     
 }
 
+:root{   /* a que estamos a criar uma raiz */
+    --text-color: white; /* a que estou a definer um nome qualquer para receber o texto padrão que está em branco */
+    --bg-url: url(./Elias/bg-desktop.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+.light {
+    --text-color: black;
+    --bg-url: url(./Elias/bg-desktop-light.jpg);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba( 0, 0, 0, 0.1);
+}
+
 body{
     /*
     background-image: url(./Elias/avatar-light.png);
@@ -12,11 +30,12 @@ body{
     background-position: top center;
     */
 
-    background: url(./Elias/bg-desktop.jpg) no-repeat top center;
+    background: var(--bg-url) no-repeat top center;
 }
 
 body *{
-    color: white;
+    font-family: "Inter", sans-serif;
+    color: var(--text-color); /* todas as cores que estão a levar está cor vão mudar de cor */
 }
 
 #container{
@@ -57,8 +76,8 @@ ul li a{
     justify-content: center;
 padding: 16px 24px;
 
-background: rgba(255, 255, 255, 0.1);
-border: 1px solid rgba(255, 255, 255, 0.5);
+background: var(--surface-color);
+border: 1px solid var(--stroke-color);
 border-radius: 8px;
 
 backdrop-filter: blur(4px);
@@ -74,17 +93,37 @@ H1 {
 }
 
 ul li a:hover{
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px solid white;
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
 }
 
 #social-links {
     display: flex;
-    gap: 32px;
 
     padding: 24px 0;
 
     font-size: 24px;
     justify-content: center;
 
+}
+
+#social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+
+}
+
+#social-links a:hover{
+    background: var(--highlight-color);
+   
+}
+
+footer {
+    text-align: center;
+    font-size: 14px;
+    padding: 24px 0;
 }
